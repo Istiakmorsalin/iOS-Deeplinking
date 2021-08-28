@@ -1,0 +1,6 @@
+framework module Pods_iOS_deeplinking {
+  umbrella header "Pods-iOS-deeplinking-umbrella.h"
+
+  export *
+  module * { export * }
+}
