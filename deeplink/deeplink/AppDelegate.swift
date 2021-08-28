@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Branch
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // This version of initSession includes the source UIScene in the callback
+        Branch.getInstance().checkPasteboardOnInstall()
+        BranchScene.shared().initSession(launchOptions: launchOptions, registerDeepLinkHandler: { (params, error, scene) in
+            print(params as? [String: AnyObject] ?? {})
+        })
+        
+        // latest
+        let sessionParams = Branch.getInstance().getLatestReferringParams()
+
+        // first
+        let installParams = Branch.getInstance().getFirstReferringParams()
         return true
     }
 

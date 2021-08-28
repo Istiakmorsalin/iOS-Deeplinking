@@ -13,6 +13,7 @@
 		1634B16126DA47150011ABC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1634B15F26DA47150011ABC4 /* Main.storyboard */; };
 		1634B16326DA47170011ABC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1634B16226DA47170011ABC4 /* Assets.xcassets */; };
 		1634B16626DA47170011ABC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1634B16426DA47170011ABC4 /* LaunchScreen.storyboard */; };
+		35268172ED792C32D772AD53 /* Pods_deeplink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC26927DB7D74AF3ECC84EE0 /* Pods_deeplink.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		1634B16226DA47170011ABC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1634B16526DA47170011ABC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1634B16726DA47170011ABC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31CA77EFE94F4A5D4A195A77 /* Pods-deeplink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deeplink.release.xcconfig"; path = "Target Support Files/Pods-deeplink/Pods-deeplink.release.xcconfig"; sourceTree = "<group>"; };
+		8B9B7ECF2F7EBDCD6D0DCFC3 /* Pods-deeplink.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deeplink.debug.xcconfig"; path = "Target Support Files/Pods-deeplink/Pods-deeplink.debug.xcconfig"; sourceTree = "<group>"; };
+		FC26927DB7D74AF3ECC84EE0 /* Pods_deeplink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_deeplink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35268172ED792C32D772AD53 /* Pods_deeplink.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BEA6675EDB61381456832F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC26927DB7D74AF3ECC84EE0 /* Pods_deeplink.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1634B14D26DA47150011ABC4 = {
 			isa = PBXGroup;
 			children = (
 				1634B15826DA47150011ABC4 /* deeplink */,
 				1634B15726DA47150011ABC4 /* Products */,
+				C68EAAC6C4AD1B2883CB11FE /* Pods */,
+				0BEA6675EDB61381456832F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = deeplink;
 			sourceTree = "<group>";
 		};
+		C68EAAC6C4AD1B2883CB11FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B9B7ECF2F7EBDCD6D0DCFC3 /* Pods-deeplink.debug.xcconfig */,
+				31CA77EFE94F4A5D4A195A77 /* Pods-deeplink.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1634B16A26DA47170011ABC4 /* Build configuration list for PBXNativeTarget "deeplink" */;
 			buildPhases = (
+				A2298AEE398F10537E512B78 /* [CP] Check Pods Manifest.lock */,
 				1634B15226DA47150011ABC4 /* Sources */,
 				1634B15326DA47150011ABC4 /* Frameworks */,
 				1634B15426DA47150011ABC4 /* Resources */,
+				F6A8E27EB5FDF02990766423 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2298AEE398F10537E512B78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-deeplink-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6A8E27EB5FDF02990766423 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-deeplink/Pods-deeplink-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-deeplink/Pods-deeplink-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-deeplink/Pods-deeplink-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1634B15226DA47150011ABC4 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		1634B16B26DA47170011ABC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B9B7ECF2F7EBDCD6D0DCFC3 /* Pods-deeplink.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +371,7 @@
 		};
 		1634B16C26DA47170011ABC4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31CA77EFE94F4A5D4A195A77 /* Pods-deeplink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
